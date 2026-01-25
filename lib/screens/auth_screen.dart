@@ -95,7 +95,8 @@ class _AuthScreenState extends State<AuthScreen> {
                         if (value == null || value.isEmpty) {
                           return 'Veuillez entrer votre email';
                         }
-                        if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                        if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                            .hasMatch(value)) {
                           return 'Veuillez entrer un email valide';
                         }
                         return null;
@@ -149,7 +150,8 @@ class _AuthScreenState extends State<AuthScreen> {
                     TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => const RegisterScreen()),
+                          MaterialPageRoute(
+                              builder: (_) => const RegisterScreen()),
                         );
                       },
                       child: const Text('Créer un compte'),

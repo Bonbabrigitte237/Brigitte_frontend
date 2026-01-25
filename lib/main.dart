@@ -30,7 +30,6 @@ class NovoActApp extends StatelessWidget {
           secondary: const Color(0xFFCE1126),
         ),
         scaffoldBackgroundColor: const Color(0xFFF5F5F5),
-        
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
             fontSize: 28,
@@ -40,7 +39,6 @@ class NovoActApp extends StatelessWidget {
           bodyLarge: TextStyle(fontSize: 16),
           bodyMedium: TextStyle(fontSize: 14),
         ),
-        
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.symmetric(vertical: 16),
@@ -53,7 +51,6 @@ class NovoActApp extends StatelessWidget {
             ),
           ),
         ),
-        
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
@@ -75,7 +72,6 @@ class NovoActApp extends StatelessWidget {
           ),
         ),
       ),
-      
       home: const AuthScreen(),
     );
   }

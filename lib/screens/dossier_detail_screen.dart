@@ -77,7 +77,8 @@ class _DossierDetailScreenState extends State<DossierDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final informations = widget.dossier['informations'] as Map<String, dynamic>? ?? {};
+    final informations =
+        widget.dossier['informations'] as Map<String, dynamic>? ?? {};
     final documents = widget.dossier['documents'] as List<dynamic>? ?? [];
 
     return Scaffold(
@@ -294,7 +295,8 @@ class _DossierDetailScreenState extends State<DossierDetailScreen> {
           } else {
             if (mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Impossible d\'ouvrir le document')),
+                const SnackBar(
+                    content: Text('Impossible d\'ouvrir le document')),
               );
             }
           }

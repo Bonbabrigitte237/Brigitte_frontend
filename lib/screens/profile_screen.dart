@@ -47,7 +47,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
     try {
       final user = firebase_auth.FirebaseAuth.instance.currentUser;
       if (user != null) {
-        await FirebaseFirestore.instance.collection('users').doc(user.uid).update({
+        await FirebaseFirestore.instance
+            .collection('users')
+            .doc(user.uid)
+            .update({
           'nom': _nomController.text,
           'prenom': _prenomController.text,
           'telephone': _telephoneController.text,
@@ -226,7 +229,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           // Reset controllers
                           _nomController.text = widget.user.nom;
                           _prenomController.text = widget.user.prenom ?? '';
-                          _telephoneController.text = widget.user.telephone ?? '';
+                          _telephoneController.text =
+                              widget.user.telephone ?? '';
                           _emailController.text = widget.user.email;
                         },
                         style: OutlinedButton.styleFrom(
@@ -244,7 +248,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           backgroundColor: const Color(0xFF007A3D),
                         ),
                         child: _isSaving
-                            ? const CircularProgressIndicator(color: Colors.white)
+                            ? const CircularProgressIndicator(
+                                color: Colors.white)
                             : const Text('Enregistrer'),
                       ),
                     ),

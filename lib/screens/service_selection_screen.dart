@@ -112,9 +112,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                 ],
               ),
             ),
-            
             const SizedBox(height: 24),
-            
             const Text(
               'TYPE DE SERVICE',
               style: TextStyle(
@@ -124,9 +122,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                 letterSpacing: 1,
               ),
             ),
-            
             const SizedBox(height: 12),
-            
             _buildServiceOption(
               'declaration',
               'Déclaration de Naissance',
@@ -134,9 +130,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
               Icons.baby_changing_station,
               'Attestation d\'accouchement requise',
             ),
-            
             const SizedBox(height: 12),
-            
             _buildServiceOption(
               'duplicata',
               'Duplicata d\'Acte Perdu',
@@ -144,9 +138,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
               Icons.content_copy,
               'Certificat de perte requis',
             ),
-            
             const SizedBox(height: 12),
-            
             _buildServiceOption(
               'jugement',
               'Établissement pour Adulte',
@@ -154,9 +146,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
               Icons.gavel,
               'Ordonnance du tribunal requise',
             ),
-            
             const SizedBox(height: 32),
-            
             const Text(
               'MAIRIE DE RETRAIT',
               style: TextStyle(
@@ -166,9 +156,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                 letterSpacing: 1,
               ),
             ),
-            
             const SizedBox(height: 12),
-            
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
@@ -194,9 +182,7 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                 ),
               ),
             ),
-            
             const SizedBox(height: 32),
-            
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -215,7 +201,8 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                         width: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          valueColor:
+                              AlwaysStoppedAnimation<Color>(Colors.white),
                         ),
                       )
                     : const Text(
@@ -242,16 +229,19 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
     String requirement,
   ) {
     final isSelected = _selectedService == value;
-    
+
     return GestureDetector(
       onTap: () => setState(() => _selectedService = value),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFF007A3D).withValues(alpha: 0.1) : Colors.white,
+          color: isSelected
+              ? const Color(0xFF007A3D).withValues(alpha: 0.1)
+              : Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? const Color(0xFF007A3D) : const Color(0xFFE0E0E0),
+            color:
+                isSelected ? const Color(0xFF007A3D) : const Color(0xFFE0E0E0),
             width: isSelected ? 2 : 1,
           ),
         ),
@@ -260,9 +250,8 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isSelected
-                    ? const Color(0xFF007A3D)
-                    : Colors.grey.shade200,
+                color:
+                    isSelected ? const Color(0xFF007A3D) : Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Icon(
@@ -281,7 +270,8 @@ class _ServiceSelectionScreenState extends State<ServiceSelectionScreen> {
                     style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: isSelected ? const Color(0xFF007A3D) : Colors.black87,
+                      color:
+                          isSelected ? const Color(0xFF007A3D) : Colors.black87,
                     ),
                   ),
                   const SizedBox(height: 4),

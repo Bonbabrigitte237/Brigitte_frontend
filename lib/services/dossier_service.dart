@@ -71,7 +71,8 @@ class DossierService {
         'updatedAt': FieldValue.serverTimestamp(),
       });
 
-      final updatedDoc = await _firestore.collection('dossiers').doc(dossierId).get();
+      final updatedDoc =
+          await _firestore.collection('dossiers').doc(dossierId).get();
       final updatedData = updatedDoc.data();
 
       return {

@@ -15,7 +15,10 @@ class AuthService {
       );
 
       // Get user data from Firestore
-      final userDoc = await _firestore.collection('users').doc(userCredential.user!.uid).get();
+      final userDoc = await _firestore
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .get();
       final userData = userDoc.data();
 
       if (userData != null) {
@@ -71,7 +74,8 @@ class AuthService {
     }
   }
 
-  Future<Map<String, dynamic>> register(String email, String password, Map<String, dynamic> userData) async {
+  Future<Map<String, dynamic>> register(
+      String email, String password, Map<String, dynamic> userData) async {
     try {
       final userCredential = await _auth.createUserWithEmailAndPassword(
         email: email,

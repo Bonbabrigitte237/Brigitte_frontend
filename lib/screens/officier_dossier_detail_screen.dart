@@ -23,7 +23,7 @@ class _OfficierDossierDetailScreenState extends State<OfficierDossierDetailScree
   DateTime? _pickupDate;
 
   void _openDocument(String url) async {
-    if (url != null && await canLaunchUrl(Uri.parse(url))) {
+    if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
     } else {
       if (mounted) {
@@ -79,15 +79,13 @@ class _OfficierDossierDetailScreenState extends State<OfficierDossierDetailScree
         data: {'status': 'rejete', 'motifRejet': motif},
       );
       setState(() => _isProcessing = false);
-      if (result['success']) {
-        if (mounted) {
+      if (mounted) {
+        if (result['success']) {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Dossier rejeté')),
           );
           Navigator.pop(context, true);
-        }
-      } else {
-        if (mounted) {
+        } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(result['message'])),
           );

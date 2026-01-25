@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CameroonHeader extends StatelessWidget {
   final String subtitle;
-  
+
   const CameroonHeader({
     super.key,
     this.subtitle = 'Plateforme de Gestion des Actes de Naissance',
@@ -42,9 +42,7 @@ class CameroonHeader extends StatelessWidget {
               _buildCameroonFlag(),
             ],
           ),
-          
           const SizedBox(height: 12),
-          
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
@@ -57,9 +55,7 @@ class CameroonHeader extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          
           const SizedBox(height: 8),
-          
           const Text(
             'Paix • Travail • Patrie',
             style: TextStyle(

@@ -9,7 +9,8 @@ class OfficierDashboardScreen extends StatefulWidget {
   const OfficierDashboardScreen({super.key, required this.user});
 
   @override
-  State<OfficierDashboardScreen> createState() => _OfficierDashboardScreenState();
+  State<OfficierDashboardScreen> createState() =>
+      _OfficierDashboardScreenState();
 }
 
 class _OfficierDashboardScreenState extends State<OfficierDashboardScreen> {
@@ -41,8 +42,10 @@ class _OfficierDashboardScreenState extends State<OfficierDashboardScreen> {
 
   List<Map<String, dynamic>> get _filteredDossiers {
     return _dossiers.where((dossier) {
-      final statusMatch = _filterStatus == 'all' || dossier['status'] == _filterStatus;
-      final mairieMatch = _filterMairie == 'all' || dossier['mairieId'] == _filterMairie;
+      final statusMatch =
+          _filterStatus == 'all' || dossier['status'] == _filterStatus;
+      final mairieMatch =
+          _filterMairie == 'all' || dossier['mairieId'] == _filterMairie;
       return statusMatch && mairieMatch;
     }).toList();
   }
@@ -161,7 +164,8 @@ class _OfficierDashboardScreenState extends State<OfficierDashboardScreen> {
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                     decoration: BoxDecoration(
                       color: Colors.blue.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(12),

@@ -35,15 +35,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadStats() async => setState(() {
-      _stats['total'] = 3;
-      _stats['en_attente'] = 1;
-      _stats['valide'] = 1;
-      _stats['pret_retrait'] = 1;
-    });
+        _stats['total'] = 3;
+        _stats['en_attente'] = 1;
+        _stats['valide'] = 1;
+        _stats['pret_retrait'] = 1;
+      });
 
   void _onNavItemTapped(int index) {
     setState(() => _selectedIndex = index);
-    
+
     if (index == 1) {
       Navigator.push(
         context,
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _handleLogout() async {
     await _authService.logout();
     if (!mounted) return;
-    
+
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(builder: (context) => const AuthScreen()),
     );
@@ -80,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
             const CameroonHeader(
               subtitle: 'Bureau des Actes d\'État Civil',
             ),
-            
             Expanded(
               child: RefreshIndicator(
                 onRefresh: _loadStats,
@@ -91,9 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       _buildWelcomeCard(),
-                      
                       const SizedBox(height: 24),
-                      
                       const Text(
                         'VOS DOSSIERS',
                         style: TextStyle(
@@ -103,13 +100,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           letterSpacing: 1,
                         ),
                       ),
-                      
                       const SizedBox(height: 16),
-                      
                       _buildStatsGrid(),
-                      
                       const SizedBox(height: 24),
-                      
                       const Text(
                         'ACCÈS RAPIDE',
                         style: TextStyle(
@@ -119,9 +112,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           letterSpacing: 1,
                         ),
                       ),
-                      
                       const SizedBox(height: 16),
-                      
                       _buildQuickAccessMenu(),
                     ],
                   ),
@@ -228,15 +219,20 @@ class _HomeScreenState extends State<HomeScreen> {
       mainAxisSpacing: 12,
       childAspectRatio: 1.3,
       children: [
-        _buildStatCard('Total', _stats['total'].toString(), Icons.folder, Colors.blue),
-        _buildStatCard('En attente', _stats['en_attente'].toString(), Icons.hourglass_empty, Colors.orange),
-        _buildStatCard('Validés', _stats['valide'].toString(), Icons.check_circle, Colors.green),
-        _buildStatCard('Prêts', _stats['pret_retrait'].toString(), Icons.done_all, Colors.purple),
+        _buildStatCard(
+            'Total', _stats['total'].toString(), Icons.folder, Colors.blue),
+        _buildStatCard('En attente', _stats['en_attente'].toString(),
+            Icons.hourglass_empty, Colors.orange),
+        _buildStatCard('Validés', _stats['valide'].toString(),
+            Icons.check_circle, Colors.green),
+        _buildStatCard('Prêts', _stats['pret_retrait'].toString(),
+            Icons.done_all, Colors.purple),
       ],
     );
   }
 
-  Widget _buildStatCard(String label, String value, IconData icon, Color color) {
+  Widget _buildStatCard(
+      String label, String value, IconData icon, Color color) {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
@@ -329,7 +325,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildMenuItem(String title, String subtitle, IconData icon, Color color, VoidCallback onTap) {
+  Widget _buildMenuItem(String title, String subtitle, IconData icon,
+      Color color, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),

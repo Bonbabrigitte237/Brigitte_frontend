@@ -93,7 +93,8 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
     });
 
     try {
-      final fileName = '${widget.numeroDossier}_${doc['type']}_${DateTime.now().millisecondsSinceEpoch}.${doc['file'].path.split('.').last}';
+      final fileName =
+          '${widget.numeroDossier}_${doc['type']}_${DateTime.now().millisecondsSinceEpoch}.${doc['file'].path.split('.').last}';
       final ref = FirebaseStorage.instance.ref().child('documents/$fileName');
       await ref.putFile(doc['file']);
       final url = await ref.getDownloadURL();
@@ -118,18 +119,21 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
   Future<void> _submitDocuments() async {
     if (_documents.isEmpty || _documents.any((doc) => !doc['uploaded'])) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Veuillez uploader tous les documents requis')),
+        const SnackBar(
+            content: Text('Veuillez uploader tous les documents requis')),
       );
       return;
     }
 
     setState(() => _isUploading = true);
 
-    final documentsData = _documents.map((doc) => {
-      'type': doc['type'],
-      'url': doc['url'],
-      'uploadedAt': DateTime.now().toIso8601String(),
-    }).toList();
+    final documentsData = _documents
+        .map((doc) => {
+              'type': doc['type'],
+              'url': doc['url'],
+              'uploadedAt': DateTime.now().toIso8601String(),
+            })
+        .toList();
 
     final result = await _dossierService.updateDossierInfo(
       dossierId: widget.dossier['id'],
@@ -285,7 +289,9 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
             Row(
               children: [
                 Icon(
-                  existingDoc['uploaded'] ? Icons.check_circle : Icons.hourglass_empty,
+                  existingDoc['uploaded']
+                      ? Icons.check_circle
+                      : Icons.hourglass_empty,
                   color: existingDoc['uploaded'] ? Colors.green : Colors.orange,
                 ),
                 const SizedBox(width: 8),
@@ -293,17 +299,19 @@ class _UploadDocumentsScreenState extends State<UploadDocumentsScreen> {
                   child: Text(
                     existingDoc['uploaded'] ? 'Uploadé' : 'En cours...',
                     style: TextStyle(
-                      color: existingDoc['uploaded'] ? Colors.green : Colors.orange,
+                      color: existingDoc['uploaded']
+                          ? Colors.green
+                          : Colors.orange,
                     ),
                   ),
                 ),
                 if (!existingDoc['uploaded'] && !existingDoc['uploading'])
                   TextButton(
-                    onPressed: () => _uploadDocument(_documents.indexOf(existingDoc)),
+                    onPressed: () =>
+                        _uploadDocument(_documents.indexOf(existingDoc)),
                     child: const Text('Uploader'),
                   ),
-                if (existingDoc['uploading'])
-                  const CircularProgressIndicator(),
+                if (existingDoc['uploading']) const CircularProgressIndicator(),
               ],
             ),
           ],
